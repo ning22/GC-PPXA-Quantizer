@@ -10,8 +10,10 @@ CFLAGS= -m32
 CLINK=-lm 
 CXXLINK=-I.
 #Makro CLINK: linker options.
-GSLLIB = c:/cygwin/lib/libgsl.a    # TO BE UPDATED BY THE USER
-GSLCBLASLIB = c:/cygwin/lib/libgslcblas.a  # TO BE UPDATED BY THE USER
+#GSLLIB = c:/cygwin/lib/libgsl.a    # TO BE UPDATED BY THE USER
+#GSLCBLASLIB = c:/cygwin/lib/libgslcblas.a  # TO BE UPDATED BY THE USER
+GSLLIB = /usr/lib/x86_64-linux-gnu/libgsl.a
+GSLCBLASLIB = /usr/lib/x86_64-linux-gnu/libgslcblas.a
 
 CXXSRC =  main.cpp pca.cpp vquan.cpp data_fidelity_term.cpp regularization_term.cpp median_cut.cpp median_cut_vquan.cpp energy.cpp graph_cut_opt.cpp centroid_func.cpp ppxa.cpp graph.cpp maxflow.cpp
 COBJ = $(CSRC:.c=.o)
