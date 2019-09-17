@@ -3,23 +3,23 @@ CXX = g++
 CC  = g++
 # compilator choices
 
-CPPFLAGS=-m64
-CFLAGS= -m64 
-#Makro CFLAGS: compilator options
-
 CLINK=-lm 
 CXXLINK=-I.
 #Makro CLINK: linker options.
 GSLLIB = /usr/lib/x86_64-linux-gnu/libgsl.a     # TO BE UPDATED BY THE USER
 GSLCBLASLIB = /usr/lib/x86_64-linux-gnu/libgslcblas.a   # TO BE UPDATED BY THE USER
 
+CPPFLAGS=-m64
+CFLAGS= -m64 
+#Makro CFLAGS: compilator options
+
 CXXSRC =  main.cpp pca.cpp vquan.cpp data_fidelity_term.cpp regularization_term.cpp median_cut.cpp median_cut_vquan.cpp energy.cpp graph_cut_opt.cpp centroid_func.cpp ppxa.cpp graph.cpp maxflow.cpp
 COBJ = $(CSRC:.c=.o)
 CXXOBJ = $(CXXSRC:.cpp=.o)
 OBJ = $(COBJ) $(CXXOBJ)
 
-program: ${CXXSRC} ${CSRC} ${COBJ} ${CXXOBJ}
-	$(CXX) ${CPPFLAGS} -o program main.cpp maxflow.o graph.o pca.o vquan.o regularization_term.o data_fidelity_term.o median_cut.o median_cut_vquan.o energy.o graph_cut_opt.o centroid_func.o ppxa.o $(CLINK) $(GSLLIB) $(GSLCBLASLIB)
+quantizer: ${CXXSRC} ${CSRC} ${COBJ} ${CXXOBJ}
+	$(CXX) ${CPPFLAGS} -o quantizer main.cpp maxflow.o graph.o pca.o vquan.o regularization_term.o data_fidelity_term.o median_cut.o median_cut_vquan.o energy.o graph_cut_opt.o centroid_func.o ppxa.o $(CLINK) $(GSLLIB) $(GSLCBLASLIB)
 
 clean: 
 	rm -f $(OBJ) core *.stackdump *.bak
